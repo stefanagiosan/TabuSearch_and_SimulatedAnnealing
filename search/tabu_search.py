@@ -1,3 +1,4 @@
+import copy
 import random
 
 
@@ -6,8 +7,7 @@ class TabuSearch:
         self.__objects = []
         self.__max_weight = 0
         self.__nr_objects = 0
-        self.__best_solution = 0
-        self.__solutions = []
+
         self.__configuration_file = filename
 
     def __configuration_file(self, filename):
@@ -45,53 +45,46 @@ class TabuSearch:
     def __generate(self):
         solution = []
         for _ in range(len(self.__objects)):
-            choice = random.choice([0,1])
+            choice = random.choice([0, 1])
             solution.append(choice)
         return solution
 
-    #this method generates the neighbours of a solution. Each neighbour is obtained by using 2-swap
+    # this method generates the neighbours of a solution. Each neighbour si obtained by flipping the value.
     @staticmethod
     def __generate_neighbours(solution):
         neighbours = []
         for i in range(len(solution)):
-            for j in range(i+1, len(solution)):
-                neighbour = solution.copy()
-                neighbour[i], neighbour[j] = neighbour[j], neighbour[i]
-                neighbours.append(neighbour)
+            sol_copy = copy.deepcopy(solution)
+            sol_copy[i] = 1 - sol_copy[i]
+            neighbours.append(sol_copy)
         return neighbours
 
-    def tabu_search(self, max_iterations):
+    def tabu_search(self, max_iterations, tabu_iterations):
         current_solution = self.__generate()
-        best_current_solution = self.__evaluate(current_solution)
+        current_solution_eval = self.__evaluate(current_solution)
         tabu_list = []
-        tabu_list_max_size = len(current_solution)
 
         for _ in range(max_iterations):
             best_neighbour = None
-            best_neighbour_eval = float('inf')
+            best_neighbour_eval = 0
             neighbours = self.__generate_neighbours(current_solution)
+            nr = 0
 
             for neighbour in neighbours:
                 if neighbour not in tabu_list:
                     neighbour_eval = self.__evaluate(neighbour)
                     if neighbour_eval > best_neighbour_eval:
+                        nr = 1
                         best_neighbour = neighbour
                         best_neighbour_eval = neighbour_eval
 
-            if best_neighbour is None:
-                break
+            if nr == 1:
+                current_solution = best_neighbour
+                current_solution_eval = best_neighbour_eval
+                tabu_list.append(best_neighbour)
 
-            current_solution = best_neighbour
-            tabu_list.append(best_neighbour)
+                if len(tabu_list) > tabu_iterations:
+                    tabu_list.pop(0)
 
-            if len(tabu_list) > tabu_list_max_size:
-                tabu_list.pop(0)
-
-            if best_neighbour_eval > best_current_solution:
-                best_current_solution = best_neighbour_eval
-
-        self.__best_solution = best_current_solution
-        self.__solutions.append(self.__best_solution)
-
-        return self.__best_solution
+        return current_solution_eval
 

@@ -6,13 +6,14 @@ from write_file.tabu_search_write import TabuWrite
 
 class UI:
     def __init__(self, filename):
-        self.__k = 40
+        self.__k = 2000
+        self.__tabu_iterations = 80
         self.__filename = filename
         self.__tabu_search = TabuSearch(filename)
         self.__exec = []
         self.__solutions = []
 
-        self.__tabu_search_write = TabuWrite(filename, self.__k)
+        self.__tabu_search_write = TabuWrite(filename, self.__k, self.__tabu_iterations)
 
     def menu(self):
         while True:
@@ -28,13 +29,13 @@ class UI:
 
                 for i in range(10):
                     start = time.time()
-                    solution = self.__tabu_search.tabu_search(self.__k)
+                    solution = self.__tabu_search.tabu_search(self.__k, self.__tabu_iterations)
                     end = time.time()
-                    exec = end - start
+                    exec_time = end - start
 
-                    self.__exec.append(exec)
+                    self.__exec.append(exec_time)
                     self.__solutions.append(solution)
-                    self.__tabu_search_write.write(solution, exec)
+                    self.__tabu_search_write.write(solution, exec_time)
 
                 self.__tabu_search_write.set_solutions(self.__solutions)
                 self.__tabu_search_write.set_exec(self.__exec)

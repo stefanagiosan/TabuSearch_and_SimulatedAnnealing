@@ -1,0 +1,64 @@
+Se foloseste *Tabu Search* si se citesc datele din fisierul: data/rucsac20.txt
+Valoarea lui K = 1000 si numarul de executii este: 10
+Iteratii Tabu: 10
+0 <------> 0.000997304916381836
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.001016378402709961
+0 <------> 0.0
+Valoarea medie: 0.0
+Valoarea maxima: 0
+Media timpului de executie: 0.0002013683319091797
+Se foloseste *Tabu Search* si se citesc datele din fisierul: data/rucsac20.txt
+Valoarea lui K = 1000 si numarul de executii este: 10
+Iteratii Tabu: 10
+0 <------> 0.0010182857513427734
+0 <------> 0.0007843971252441406
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0010275840759277344
+0 <------> 0.0
+0 <------> 0.0009377002716064453
+0 <------> 0.0
+Valoarea medie: 0.0
+Valoarea maxima: 0
+Media timpului de executie: 0.0003767967224121094
+Se foloseste *Tabu Search* si se citesc datele din fisierul: data/rucsac20.txt
+Valoarea lui K = 2000 si numarul de executii este: 10
+Iteratii Tabu: 25
+0 <------> 0.0009558200836181641
+0 <------> 0.0009975433349609375
+0 <------> 0.000997304916381836
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0010228157043457031
+0 <------> 0.0009729862213134766
+0 <------> 0.000997304916381836
+0 <------> 0.0
+0 <------> 0.0
+Valoarea medie: 0.0
+Valoarea maxima: 0
+Media timpului de executie: 0.0005943775177001953
+Se foloseste *Tabu Search* si se citesc datele din fisierul: data/rucsac200.txt
+Valoarea lui K = 2000 si numarul de executii este: 10
+Iteratii Tabu: 80
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0010366439819335938
+0 <------> 0.0009567737579345703
+0 <------> 0.0010237693786621094
+0 <------> 0.0
+0 <------> 0.0
+0 <------> 0.0009729862213134766
+0 <------> 0.0010077953338623047
+0 <------> 0.0010204315185546875
+Valoarea medie: 0.0
+Valoarea maxima: 0
+Media timpului de executie: 0.0006018400192260743

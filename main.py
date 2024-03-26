@@ -2,7 +2,7 @@ from ui.ui import UI
 
 
 def main():
-    ui = UI("data/rucsac20.txt")
+    ui = UI("data/rucsac200.txt")
     ui.menu()
 
 
