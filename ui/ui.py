@@ -1,46 +1,90 @@
 import time
 
 from search.tabu_search import TabuSearch
-from write_file.tabu_search_write import TabuWrite
+from search.tsp import TSP
+from write_file.write import OutputFileWriter
 
 
 class UI:
-    def __init__(self, filename):
-        self.__k = 2000
-        self.__tabu_iterations = 80
-        self.__filename = filename
-        self.__tabu_search = TabuSearch(filename)
-        self.__exec = []
+    def __init__(self):
+        self.__iterations = 0
+        self.__tabu_iterations = 0
+
+        self.__tabuSearch = None
+        self.__tsp = None
+
+        self.__execution_times = []
         self.__solutions = []
 
-        self.__tabu_search_write = TabuWrite(filename, self.__k, self.__tabu_iterations)
+        self.__rucsac_file_writer = OutputFileWriter("data/rucsac200.txt",
+                                                     "results/results_tabu.txt", self.__iterations,
+                                                     self.__tabu_iterations)
+        self.__tsp_file_writer = OutputFileWriter("data/data.tsp", "results/results_tsp.txt",
+                                                  self.__iterations, self.__tabu_iterations)
 
-    def menu(self):
+    def show_menu(self):
         while True:
-            print("1. Tabu Search")
-            print("3. Iesire")
+            print("1. Problema rucsacului cu tabu search.")
+            print("2. Problema comis-voiajorului cu tabu search.")
+            print("x. Iesire")
 
-            choice = input("Dati optiunea: ")
+            user_choice = input("Dati optiunea: ")
 
-            if choice == "1":
+            if user_choice == "1":
+                self.__iterations = int(input("Dati numarul de iteratii: "))
+                self.__tabu_iterations = int(input("Dati numerul de iteratii tabu: "))
+
+                self.__tabuSearch = TabuSearch("data/rucsac200.txt",
+                                               self.__iterations, self.__tabu_iterations)
+
                 self.__solutions = []
-                self.__exec = []
-                self.__tabu_search_write.info()
+                self.__execution_times = []
+
+                self.__rucsac_file_writer.initial_write_file()
 
                 for i in range(10):
-                    start = time.time()
-                    solution = self.__tabu_search.tabu_search(self.__k, self.__tabu_iterations)
-                    end = time.time()
-                    exec_time = end - start
+                    start_time = time.time()
+                    solution = self.__tabuSearch.execute_search()
+                    end_time = time.time()
+                    execution_time = end_time - start_time
 
-                    self.__exec.append(exec_time)
                     self.__solutions.append(solution)
-                    self.__tabu_search_write.write(solution, exec_time)
+                    self.__execution_times.append(execution_time)
+                    self.__rucsac_file_writer.write_file(solution, execution_time)
 
-                self.__tabu_search_write.set_solutions(self.__solutions)
-                self.__tabu_search_write.set_exec(self.__exec)
-                self.__tabu_search_write.result()
-            elif choice == "3":
+                self.__rucsac_file_writer.set_solutions(self.__solutions)
+                self.__rucsac_file_writer.set_execution_times(self.__execution_times)
+                self.__rucsac_file_writer.final_write_file()
+
+                print("Datele au fost procesate.")
+            elif user_choice == "2":
+                self.__iterations = int(input("Dati numarul de iteratii: "))
+                self.__tabu_iterations = int(input("Dati numerul de iteratii tabu: "))
+
+                self.__tsp = TSP("data/data.tsp", self.__iterations,
+                                 self.__tabu_iterations)
+
+                self.__solutions = []
+                self.__execution_times = []
+
+                self.__tsp_file_writer.initial_write_file()
+
+                for i in range(10):
+                    start_time = time.time()
+                    solution = self.__tsp.execute_search()
+                    end_time = time.time()
+                    execution_time = end_time - start_time
+
+                    self.__solutions.append(solution)
+                    self.__execution_times.append(execution_time)
+                    self.__tsp_file_writer.write_file(solution, execution_time)
+
+                self.__tsp_file_writer.set_solutions(self.__solutions)
+                self.__tsp_file_writer.set_execution_times(self.__execution_times)
+                self.__tsp_file_writer.final_write_file()
+
+                print("Datele au fost procesate.")
+            elif user_choice == "x":
                 break
             else:
-                print("Invalid Input")
+                print("Optiune Invalida.")
