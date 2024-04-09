@@ -16,7 +16,7 @@ class UI:
         self.__execution_times = []
         self.__solutions = []
 
-        self.__rucsac_file_writer = OutputFileWriter("data/rucsac200.txt",
+        self.__rucsac_file_writer = OutputFileWriter("data/rucsac.txt",
                                                      "results/results_tabu.txt", self.__iterations,
                                                      self.__tabu_iterations)
         self.__tsp_file_writer = OutputFileWriter("data/data.tsp", "results/results_tsp.txt",
@@ -34,7 +34,7 @@ class UI:
                 self.__iterations = int(input("Dati numarul de iteratii: "))
                 self.__tabu_iterations = int(input("Dati numerul de iteratii tabu: "))
 
-                self.__tabuSearch = TabuSearch("data/rucsac200.txt",
+                self.__tabuSearch = TabuSearch("data/rucsac.txt",
                                                self.__iterations, self.__tabu_iterations)
 
                 self.__solutions = []
@@ -44,7 +44,7 @@ class UI:
 
                 for i in range(10):
                     start_time = time.time()
-                    solution = self.__tabuSearch.execute_search()
+                    solution = self.__tabuSearch.search()
                     end_time = time.time()
                     execution_time = end_time - start_time
 
@@ -71,7 +71,7 @@ class UI:
 
                 for i in range(10):
                     start_time = time.time()
-                    solution = self.__tsp.execute_search()
+                    solution = self.__tsp.search()
                     end_time = time.time()
                     execution_time = end_time - start_time
 

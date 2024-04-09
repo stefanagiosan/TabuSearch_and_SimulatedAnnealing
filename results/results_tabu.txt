@@ -208,3 +208,108 @@ Valoare medie obtinuta: 65724.0
 Valoare maxima obtinuta: 131942
 Timp de executie mediu: 69.45535688400268
 
+Algoritm folosit: tabu search
+Fisier de intrare: data/rucsac.txt
+Numar iteratii = 0
+Iteratii tabu: 0
+Numar rulari: 10. Rezultatele obtinute sunt:
+
+69          0.32706737518310547
+0          0.323331356048584
+0          0.32213759422302246
+0          0.3412818908691406
+0          0.3282785415649414
+69          0.3251307010650635
+71          0.3440835475921631
+0          0.36003732681274414
+0          0.33510637283325195
+70          0.3540530204772949
+
+Valoare medie obtinuta: 27.9
+Valoare maxima obtinuta: 71
+Timp de executie mediu: 0.3360507726669312
+
+Algoritm folosit: tabu search
+Fisier de intrare: data/rucsac.txt
+Numar iteratii = 0
+Iteratii tabu: 0
+Numar rulari: 10. Rezultatele obtinute sunt:
+
+0          0.6632187366485596
+0          0.6551072597503662
+0          0.6651415824890137
+63          0.6562449932098389
+0          0.6514601707458496
+66          0.6928372383117676
+0          0.686657190322876
+0          0.6622519493103027
+72          0.6544442176818848
+66          0.6582403182983398
+
+Valoare medie obtinuta: 26.7
+Valoare maxima obtinuta: 72
+Timp de executie mediu: 0.6645603656768799
+
+Algoritm folosit: tabu search
+Fisier de intrare: data/rucsac.txt
+Numar iteratii = 0
+Iteratii tabu: 0
+Numar rulari: 10. Rezultatele obtinute sunt:
+
+66          0.9955739974975586
+0          0.965381383895874
+0          0.9584372043609619
+70          1.0023193359375
+0          0.9763891696929932
+67          1.0102980136871338
+0          0.996335506439209
+71          1.0501916408538818
+67          0.9993274211883545
+66          1.0063085556030273
+
+Valoare medie obtinuta: 40.7
+Valoare maxima obtinuta: 71
+Timp de executie mediu: 0.9960562229156494
+
+Algoritm folosit: tabu search
+Fisier de intrare: data/rucsac.txt
+Numar iteratii = 0
+Iteratii tabu: 0
+Numar rulari: 10. Rezultatele obtinute sunt:
+
+0          1.347170352935791
+72          1.3646750450134277
+0          1.341984510421753
+0          1.3546574115753174
+0          1.4237971305847168
+69          1.463289499282837
+0          1.4187979698181152
+0          1.3922746181488037
+0          1.407426357269287
+0          1.4240148067474365
+
+Valoare medie obtinuta: 14.1
+Valoare maxima obtinuta: 72
+Timp de executie mediu: 1.3938087701797486
+
+Algoritm folosit: tabu search
+Fisier de intrare: data/rucsac.txt
+Numar iteratii = 0
+Iteratii tabu: 0
+Numar rulari: 10. Rezultatele obtinute sunt:
+
+70          1.7008697986602783
+71          1.6946489810943604
+72          1.7443139553070068
+0          1.6135752201080322
+0          1.6165168285369873
+0          1.6478877067565918
+70          1.7307298183441162
+0          1.69553542137146
+68          1.7292561531066895
+0          1.601717233657837
+
+Valoare medie obtinuta: 35.1
+Valoare maxima obtinuta: 72
+Timp de executie mediu: 1.677505111694336
+

@@ -52,7 +52,7 @@ class TabuSearch:
             solution.append(choice)
         return solution
 
-    def execute_search(self):
+    def search(self):
         solution = self.__generate()
         solution_quality = self.__evaluate(solution)
         memory = []
